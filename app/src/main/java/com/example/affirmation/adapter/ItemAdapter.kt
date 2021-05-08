@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmation.R
@@ -20,7 +21,10 @@ class ItemAdapter(private val context:Context,
      * The "ItemViewHolder" is only used in ItemAdapter
      */
     class ItemViewHolder(private val view:View):RecyclerView.ViewHolder(view){
+        //for text
         val textView:TextView = view.findViewById(R.id.item_title)
+        //for picture
+        val imageView:ImageView = view.findViewById(R.id.item_image)
     }
 
 
@@ -54,6 +58,7 @@ class ItemAdapter(private val context:Context,
         //Replace the content of a view <-- invoked by the layout manager
         val item = dataset[position]
         holder.textView.text = context.resources.getString(item.stringResourceId)
+        holder.imageView.setImageResource(item.imageResourceId)
     }
 
     override fun getItemCount(): Int {
